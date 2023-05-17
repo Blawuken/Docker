@@ -6,7 +6,7 @@
 trap 'rm -rf /tmp/tools.zip 2>/dev/null' INT TERM EXIT
 
 CUR_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
-CUR_DIR="${CUR_DIR/setup/}"
+CUR_DIR="${CUR_DIR/}"
 SDK_TOOLS=commandlinetools-linux-7583922_latest.zip
 
 function setup_android_sdk() {
@@ -19,7 +19,7 @@ function setup_android_sdk() {
     unzip -qo /tmp/tools.zip -d "${SDK_DIR}"
     while read -r package; do
         yes | "${SDK_DIR}"/cmdline-tools/bin/sdkmanager --sdk_root="${SDK_DIR}" "${package:?}"
-    done < "${CUR_DIR}"/setup/android-sdk-minimal.txt
+    done < "${CUR_DIR}"/android-sdk-minimal.txt
     rm /tmp/tools.zip
     cd - || exit
 }
