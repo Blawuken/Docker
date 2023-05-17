@@ -13,7 +13,7 @@ WORKDIR /root
 COPY . .
 
 RUN apt-get -yqq update \
-    && apt-get install --no-install-recommends -yqq apt-utils sudo git aria2 make cmake --fix-broken --fix-missing \
+    && apt-get install --no-install-recommends -yqq apt-utils sudo git aria2 make cmake wget curl --fix-broken --fix-missing \
     && bash android_build_env.sh \
     && sed -i 's/cd -/cd ../g' install_android_sdk.sh \
     && bash install_android_sdk.sh
