@@ -12,7 +12,7 @@ WORKDIR /root
 
 RUN apt-get -yqq update \
     && apt-get install --no-install-recommends -yqq apt-utils sudo git aria2 --fix-broken --fix-missing \
-    && git clone --depth 1 https://gitlab.com/OrangeFox/misc/scripts .scp \
+    && git clone --depth 1 https://gitlab.com/OrangeFox/misc/scripts.git .scp \
     && cd .scp \
     && bash setup/android_build_env.sh \
     && sed -i 's/cd -/cd ../g' setup/install_android_sdk.sh \
