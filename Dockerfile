@@ -22,12 +22,6 @@ RUN git config --global user.name Blawuken \
     && git config --global user.email jarbull87@gmail.com \
     && git config --global color.ui auto
 
-RUN groupadd -g 1000 -r ${USER} \
-    && useradd -u 1000 --create-home -r -g ${USER} ${USER}
-
-RUN echo "${USER} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USER} \
-    && usermod -aG sudo ${USER}
-
 RUN apt-get install tzdata \
     && apt-mark hold tzdata \
     && ln -snf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime \
