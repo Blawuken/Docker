@@ -1,4 +1,4 @@
-FROM ubuntu:21.10
+FROM ubuntu:latest
 MAINTAINER Blawuken <jarbull87@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
