@@ -14,7 +14,7 @@ COPY . .
 
 RUN apt-get -yqq update \
     && apt-get install --no-install-recommends -yqq apt-utils sudo git aria2 wget curl nano openssh-server openssh-client --fix-broken --fix-missing \
-    && wget https://mega.nz/linux/MEGAsync/xUbuntu_21.10/amd64/megacmd-xUbuntu_21.10_amd64.deb \
+    && wget --no-check-certificate https://mega.nz/linux/MEGAsync/xUbuntu_21.10/amd64/megacmd-xUbuntu_21.10_amd64.deb \
     && sudo apt install ./megacmd*.deb
 
 RUN git config --global user.name Blawuken \
