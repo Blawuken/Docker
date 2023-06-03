@@ -1,7 +1,9 @@
 FROM ubuntu:20.04
 MAINTAINER Blawuken <jarbull87@gmail.com>
 
-ENV TZ Asia/Jakarta
+ENV DEBIAN_FRONTEND="noninteractive"
+ENV TZ="Asia/Jakarta"
+
 WORKDIR /github/asoy
 
 RUN apt-get -y update && apt-get -y upgrade && apt-get -y install apt-utils unzip ca-certificates fuse sudo git rsync gnupg2 aria2 lolcat wget curl nano openssh-server openssh-client sshpass \
