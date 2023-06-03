@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:21.10
 MAINTAINER Blawuken <jarbull87@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -13,7 +13,9 @@ WORKDIR /root
 COPY . .
 
 RUN apt-get -yqq update \
-    && apt-get install --no-install-recommends -yqq apt-utils sudo git aria2 wget curl nano openssh megacmd --fix-broken --fix-missing
+    && apt-get install --no-install-recommends -yqq apt-utils sudo git aria2 wget curl nano openssh-server openssh-client --fix-broken --fix-missing \
+    && wget https://mega.nz/linux/MEGAsync/xUbuntu_21.10/amd64/megacmd-xUbuntu_21.10_amd64.deb \
+    && sudo apt install ./megacmd*.deb
 
 RUN git config --global user.name Blawuken \
     && git config --global user.email jarbull87@gmail.com \

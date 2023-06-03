@@ -36,7 +36,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: anggit86/ubuntu:latest
+          tags: anggit86/ubuntu:asoy
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
