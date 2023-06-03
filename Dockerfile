@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:latest
 MAINTAINER Blawuken <jarbull87@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -13,10 +13,7 @@ WORKDIR /root
 COPY . .
 
 RUN apt-get -yqq update \
-    && apt-get install --no-install-recommends -yqq apt-utils sudo git aria2 make cmake wget curl --fix-broken --fix-missing \
-    && bash android_build_env.sh \
-    && sed -i 's/cd -/cd ../g' install_android_sdk.sh \
-    && bash install_android_sdk.sh
+    && apt-get install --no-install-recommends -yqq apt-utils sudo git aria2 wget curl nano openssh megacmd --fix-broken --fix-missing
 
 RUN git config --global user.name Blawuken \
     && git config --global user.email jarbull87@gmail.com \
